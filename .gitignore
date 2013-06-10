@@ -15,3 +15,7 @@ facebook/tests/assets/config.json
 .idea/workspace.xml
 .idea/dictionaries/
 .idea/inspectionProfiles/
+
+#Crashlytics
+
+com_crashlytics_export_strings.xml

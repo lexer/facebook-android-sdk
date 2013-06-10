@@ -56,6 +56,11 @@ public class Session implements Serializable {
     public static final String TAG = Session.class.getCanonicalName();
 
     /**
+     * Injectable application id to hack inability to set application id programmatically
+     */
+    public static String hackApplicationId = null;
+
+    /**
      * The default activity code used for authorization.
      *
      * @see #openForRead(OpenRequest)
@@ -215,6 +220,10 @@ public class Session implements Serializable {
 
     Session(Context context, String applicationId, TokenCachingStrategy tokenCachingStrategy,
             boolean loadTokenFromCache) {
+        if (hackApplicationId != null && applicationId == null) {
+            applicationId = hackApplicationId;
+        }
+
         // if the application ID passed in is null, try to get it from the
         // meta-data in the manifest.
         if ((context != null) && (applicationId == null)) {
