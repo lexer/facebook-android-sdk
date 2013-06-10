@@ -1089,6 +1089,7 @@ public class Session implements Serializable {
         AuthorizationClient.AuthorizationRequest authClientRequest = request.getAuthorizationClientRequest();
         Bundle extras = LoginActivity.populateIntentExtras(authClientRequest);
         intent.putExtras(extras);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 
         return intent;
     }
